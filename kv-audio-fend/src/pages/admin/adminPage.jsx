@@ -8,6 +8,7 @@ export default function AdminPage(){
     return (
 
         <div className='w-full h-screen flex'>
+          
               <div className='w-[400px] h-full bg-green-200'>
         
                 <button className='w-full h-[40px] text-[25px] font-sans flex justify-center items-center'><BsGraphDown />Dashboard</button>
