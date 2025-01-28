@@ -3,6 +3,8 @@ import './App.css';
 import AdminPage from './pages/admin/adminPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/admin/home/homePage';
+import Testing from './components/testing';
+import LoginPage from './pages/login/login';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
     <BrowserRouter>
       <Routes path="/*">
 
+       <Route path="/login" element={<LoginPage/>}/>
+       <Route path="/testing" element={<Testing/>}/>
        <Route path="/admin/*" element={<AdminPage />} />
        <Route path="/*" element={<HomePage/>} />
         
