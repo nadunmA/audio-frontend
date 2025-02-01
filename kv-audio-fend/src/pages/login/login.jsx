@@ -1,14 +1,39 @@
-import { useState } from "react"
-import "./login.css"
+import { useState } from "react";
+import "./login.css";
+import axios from "axios";
+import toast, { Toaster } from 'react-hot-toast';
+import {useNavigate} from "react-router-dom"
 
 export default function LoginPage(){
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const naviagate =  useNavigate();
 
     function handleOnSubmit(e){
         e.preventDefault()
         console.log(email, password)
+
+        axios.post("http://localhost:3001/api/users/login",
+          {
+            email : email,
+            password : password
+          }
+        ).then((res)=>{
+          console.log(res)
+          toast.success("login sucess")
+          const user = res.data.user
+          if(user.role == "admin"){
+            naviagate("/admin/")
+
+          }else{
+            naviagate("/admin/")
+          }
+          
+        }).catch((err)=>{
+          console.log(err)
+          toast.error(err.response.data.error)
+        })
     }
 
     return(

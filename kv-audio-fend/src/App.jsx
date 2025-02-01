@@ -5,11 +5,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/admin/home/homePage';
 import Testing from './components/testing';
 import LoginPage from './pages/login/login';
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
 
     <BrowserRouter>
+
+      <Toaster />
+
       <Routes path="/*">
 
        <Route path="/login" element={<LoginPage/>}/>
